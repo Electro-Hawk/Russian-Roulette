@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnSpin = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
@@ -42,7 +43,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(123, 83);
+            this.btnLoad.Location = new System.Drawing.Point(83, 93);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(87, 23);
             this.btnLoad.TabIndex = 0;
@@ -52,7 +53,7 @@
             // 
             // btnSpin
             // 
-            this.btnSpin.Location = new System.Drawing.Point(123, 113);
+            this.btnSpin.Location = new System.Drawing.Point(83, 123);
             this.btnSpin.Name = "btnSpin";
             this.btnSpin.Size = new System.Drawing.Size(87, 23);
             this.btnSpin.TabIndex = 1;
@@ -62,7 +63,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(123, 143);
+            this.btnReset.Location = new System.Drawing.Point(83, 153);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(87, 23);
             this.btnReset.TabIndex = 2;
@@ -72,7 +73,7 @@
             // 
             // btnFire
             // 
-            this.btnFire.Location = new System.Drawing.Point(253, 83);
+            this.btnFire.Location = new System.Drawing.Point(213, 93);
             this.btnFire.Name = "btnFire";
             this.btnFire.Size = new System.Drawing.Size(75, 23);
             this.btnFire.TabIndex = 3;
@@ -82,18 +83,18 @@
             // 
             // btnAway
             // 
-            this.btnAway.Location = new System.Drawing.Point(253, 113);
+            this.btnAway.Location = new System.Drawing.Point(213, 123);
             this.btnAway.Name = "btnAway";
             this.btnAway.Size = new System.Drawing.Size(75, 23);
             this.btnAway.TabIndex = 4;
-            this.btnAway.Text = "Point Away";
+            this.btnAway.Text = "Block";
             this.btnAway.UseVisualStyleBackColor = true;
             this.btnAway.Click += new System.EventHandler(this.BtnAway_Click);
             // 
             // lblWin
             // 
             this.lblWin.BackColor = System.Drawing.Color.LightBlue;
-            this.lblWin.Location = new System.Drawing.Point(490, 83);
+            this.lblWin.Location = new System.Drawing.Point(450, 93);
             this.lblWin.Name = "lblWin";
             this.lblWin.Size = new System.Drawing.Size(100, 23);
             this.lblWin.TabIndex = 5;
@@ -103,7 +104,7 @@
             // lblLose
             // 
             this.lblLose.BackColor = System.Drawing.Color.LightBlue;
-            this.lblLose.Location = new System.Drawing.Point(490, 113);
+            this.lblLose.Location = new System.Drawing.Point(450, 123);
             this.lblLose.Name = "lblLose";
             this.lblLose.Size = new System.Drawing.Size(100, 23);
             this.lblLose.TabIndex = 6;
@@ -113,7 +114,7 @@
             // lblBullets
             // 
             this.lblBullets.BackColor = System.Drawing.Color.IndianRed;
-            this.lblBullets.Location = new System.Drawing.Point(353, 83);
+            this.lblBullets.Location = new System.Drawing.Point(313, 93);
             this.lblBullets.Name = "lblBullets";
             this.lblBullets.Size = new System.Drawing.Size(100, 23);
             this.lblBullets.TabIndex = 7;
@@ -123,17 +124,17 @@
             // lblAway
             // 
             this.lblAway.BackColor = System.Drawing.Color.IndianRed;
-            this.lblAway.Location = new System.Drawing.Point(353, 113);
+            this.lblAway.Location = new System.Drawing.Point(313, 123);
             this.lblAway.Name = "lblAway";
             this.lblAway.Size = new System.Drawing.Size(100, 23);
             this.lblAway.TabIndex = 8;
-            this.lblAway.Text = "Chances Left: 0";
+            this.lblAway.Text = "Blocks Left: 0";
             this.lblAway.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblChamber
             // 
             this.lblChamber.BackColor = System.Drawing.Color.YellowGreen;
-            this.lblChamber.Location = new System.Drawing.Point(353, 143);
+            this.lblChamber.Location = new System.Drawing.Point(313, 153);
             this.lblChamber.Name = "lblChamber";
             this.lblChamber.Size = new System.Drawing.Size(100, 23);
             this.lblChamber.TabIndex = 9;
@@ -144,7 +145,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(634, 421);
             this.Controls.Add(this.lblChamber);
             this.Controls.Add(this.lblAway);
             this.Controls.Add(this.lblBullets);

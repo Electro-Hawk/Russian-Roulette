@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace Russian_Roulette
 {
@@ -10,45 +11,93 @@ namespace Russian_Roulette
     
     public class Operations
     {
-        private int turn = 0;
-        public int Bullets(int BulletNum)
-        {
-            int bulletNumber = 1;
-            BulletNum = bulletNumber;
+        public int bullets;
+        public int ChamberNum;
+        public int turn;
+        public bool block;
+        public int blocks;
+        public bool win;
+        public int wins;
+        public bool loss;
+        public int losses;
 
-            return BulletNum;
+        public void Load()
+        {
+            bullets = 1;
         }
-        
-        public void ChamberSelect(int ChamberNum)
+
+        public void SpinChamber()
         {
             Random myRandom = new Random();
             ChamberNum = myRandom.Next(1, 7);
+
+            turn = 1;
+            blocks = 2;
+
+            System.Media.SoundPlayer spin = new System.Media.SoundPlayer();
+            spin.SoundLocation = @"D:\C# Course 2019\Russian Roulette\Properties\Sounds\Spin.wav";
+            spin.Load();
+            spin.Play();
         }
 
-        public int Turn(int TurnNum)
+        public void Reset()
         {
-            turn = 1;
-            TurnNum = turn;
+            turn = 0;
+            bullets = 0;
+            blocks = 0;
+            block = false;
+            win = false;
+            loss = false;
+        }
 
-            return TurnNum;
+        public void Block()
+        {
+            if (blocks > 0)
+            {
+                block = true;
+            }
         }
 
         public void Fire()
         {
-            if (turn < 6)
+            if (turn < 6 && turn == ChamberNum)
             {
-                turn += 1;
+                if (block != true)
+                {
+                    bullets = 0;
+                    loss = true;
+                    losses += 1;
+                    turn = 7;
+                    System.Media.SoundPlayer gunshot = new System.Media.SoundPlayer();
+                    gunshot.SoundLocation = @"D:\C# Course 2019\Russian Roulette\Properties\Sounds\Gunshot.wav";
+                    gunshot.Load();
+                    gunshot.Play();
+                }
+                else
+                {
+                    bullets = 0;
+                    win = true;
+                    wins += 1;
+                    turn = 7;
+                    System.Media.SoundPlayer ricochet = new System.Media.SoundPlayer();
+                    ricochet.SoundLocation = @"D:\C# Course 2019\Russian Roulette\Properties\Sounds\Ricochet.wav";
+                    ricochet.Load();
+                    ricochet.Play();
+                }
             }
-            else if (turn >= 6)
+            else if (turn < 6 && turn != ChamberNum)
             {
-                
+                if (block == true)
+                {
+                    blocks -= 1;
+                    block = false;
+                    turn += 1;
+                }
+                else
+                {
+                    turn += 1;
+                }
             }
-
         }
-
-        private int ChamberSelect()
-        {
-            throw new NotImplementedException();
-        } 
     }
 }
